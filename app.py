@@ -57,6 +57,9 @@ def upload():
         return jsonify({"result_image": "/static/result.png"})
 
     return jsonify({"error": "File not processed"}), 500
+import os
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
     os.makedirs("uploads", exist_ok=True)
